@@ -3,12 +3,20 @@ const express = require("express");
 
 const app = express();
 
+// Get all Restaurants
 app.get("/restaurants", (req, res) => {
-    res.status(404).json({
-        status: "success", 
-        restaurant: "pizza hut",
+    res.status(200).json({
+        status: "success",
+        data: {
+            restaurant: ["pizza hut", "wendys"],
+        },     
     });
 }); 
+
+// Get a Restaurant 
+app.get("api/v1/restaurants/:id", (req, res) => {
+    console.log(req);
+});
 
 console.log("test");
 
